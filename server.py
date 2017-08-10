@@ -8,18 +8,18 @@ def route_index():
     note_text = None
     if 'note' in session:
         note_text = session['note']
-    return render_template('index.html', note=note_text)
+    return render_template('list.html', note=note_text)
 
 
-@app.route('/edit-note')
+@app.route('/story')
 def route_edit():
     note_text = None
     if 'note' in session:
         note_text = session['note']
-    return render_template('edit.html', note=note_text)
+    return render_template('form.html', note=note_text)
 
 
-@app.route('/save-note', methods=['POST'])
+@app.route('/story/<story_id>', methods=['POST'])
 def route_save():
     print('POST request received!')
     session['note'] = request.form['note']
@@ -28,6 +28,6 @@ def route_save():
 if __name__ == "__main__":
     app.secret_key = 'some_secret_key_here'
     app.run(
-        debug=True, # Allow verbose error reports
-        port=5000 # Set custom port
+        debug=True,  # Allow verbose error reports
+        port=5000  # Set custom port
     )
