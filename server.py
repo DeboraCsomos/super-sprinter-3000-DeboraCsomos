@@ -11,7 +11,7 @@ def route_index():
     return render_template('list.html', note=note_text)
 
 
-@app.route('/story')
+@app.route('/story', methods=['POST'])
 def route_edit():
     note_text = None
     if 'note' in session:
