@@ -1,3 +1,4 @@
+.vscode
 venv/bin/activate
 venv/lib/python3.5/site-packages/wheel-0.29.0.dist-info/WHEEL
 venv/include/python3.5m

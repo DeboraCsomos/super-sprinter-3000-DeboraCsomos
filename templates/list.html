@@ -21,14 +21,12 @@
             </tr>
             {% for row in story_info %}
             <tr>
-                <td>{{ loop.index }}</td>
                 {% for element in row %}
-                    <td>{{ row[loop.index] }}</td>
+                    <td>{{ row[loop.index0] }}</td>
                 {% endfor %}
+                <td><a href="/story/{{ row[0] }}">edit</a>
             </tr>
             {% endfor %}
             
-                
-
     </body>
 </html>

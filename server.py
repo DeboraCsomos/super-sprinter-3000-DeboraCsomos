@@ -41,15 +41,23 @@ def route_new():
     return render_template('form.html')
 
 
-@app.route('/story/<story_id>', methods=['POST'])
-def route_edit():
-    return
+@app.route('/story/<story_id>', methods=['GET'])
+def route_edit(story_id):
+    with open("user_stories.csv", "r", newline='') as csvfile:
+        storyreader = csv.reader(csvfile, delimiter=",")
+        edit_story = []
+        for row in storyreader:
+            if row[0] == story_id:
+                edit_story = row
+    return render_template("form.html", edit_story=edit_story)
 
 
 if __name__ == "__main__":
     app.secret_key = 'some_secret_key_here'
     app.run(
         debug=True,  # Allow verbose error reports
+        # use_debugger=False,
+        # use_reloader=False,  
         port=5000  # Set custom port
     )
 
