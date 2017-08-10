@@ -6,19 +6,19 @@
     </head>
     <body>
         <h1>User Story Manager - Add new Story</h1>
-        <form action="/" method="post">
-            <p>Story Title:</p>
-            <textarea name="story title" rows="1" cols="30"></textarea>
-            <p>User Story:</p>
-            <textarea name="user story" rows="8" cols="30"></textarea>
-            <p>Acceptance Criteria:</p>
-            <textarea name="acceptance criteria" rows="8" cols="30"></textarea>
-            <p>Business Value:</p>
-            <input type="number" name="business value" min="100" max="1500" step="100">
-            <p>Estimation</p>
-            <input type="number" name="estimation" min="0.5" max="40" step="0.5">
-            <p>Status:</p>
-            <select name="status">
+        <form action='/story' method="post">
+            <p><label for="title">Story Title:</label></p>
+            <textarea id="title" name="story title" rows="1" cols="30"></textarea>
+            <p><label for="story">User Story:</label></p>
+            <textarea id="story" name="user story" rows="8" cols="30"></textarea>
+            <p><label for="criteria">Acceptance Criteria:</label></p>
+            <textarea id="criteria" name="acceptance criteria" rows="8" cols="30"></textarea>
+            <p><label for="value"> Business Value:</label></p>
+            <input id="value" type="number" name="business value" min="100" max="1500" step="100">
+            <p><label for="estimation">Estimation:</label></p>
+            <input id="estimation" type="number" name="estimation" min="0.5" max="40" step="0.5">
+            <p><label for="status">Status:</label></p>
+            <select id="status" name="status">
                 <option selected>Planning</option>
                 <option>TODO</option>
                 <option>In Progress</option>

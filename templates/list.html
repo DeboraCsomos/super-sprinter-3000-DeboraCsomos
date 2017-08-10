@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>User Story Manager</h1>
-        <form action="/story" method="post">
+        <form action="/story">
             <button type="Submit">Add new User Story</button>
         </form>
         <table>
@@ -19,5 +19,16 @@
                 <th> Estimation </th>
                 <th> Status </th>
             </tr>
+            {% for row in story_info %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                {% for element in row %}
+                    <td>{{ row[loop.index] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            
+                
+
     </body>
 </html>
