@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, url_for
 import csv
 import os
 
@@ -40,7 +40,7 @@ def route_new():
             storywriter = csv.writer(csvfile)
             storywriter.writerow(user_story)
 
-        return redirect('/')
+        return redirect(url_for('route_index'))
 
     return render_template('form.html')
 
@@ -67,7 +67,7 @@ def route_edit(story_id):
             storywriter = csv.writer(csvfile)
             storywriter.writerows(stories)
 
-        return redirect('/')
+        return redirect(url_for('route_index'))
     if request.method == 'GET':
         with open("user_stories.csv", "r", newline='') as csvfile:
             storyreader = csv.reader(csvfile, delimiter=",")
@@ -91,7 +91,7 @@ def story_delete(story_id):
     with open("user_stories.csv", "w", newline='') as csvfile:
         storywriter = csv.writer(csvfile)
         storywriter.writerows(story_info)
-    return redirect('/')
+    return redirect(url_for('route_index'))
 
 
 if __name__ == "__main__":
