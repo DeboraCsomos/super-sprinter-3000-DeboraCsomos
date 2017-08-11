@@ -22,7 +22,10 @@
                 {% for element in row %}
                     <td>{{ row[loop.index0] }}</td>
                 {% endfor %}
-                <td><a href="/story/{{ row[0] }}">edit</a>
+                {% if row: %}
+                    <td><a href="/story/{{ row[0] }}"><img src="/static/images/edit.svg" width="20" height="20" alt="Edit"></a></td>
+                    <td><a href="/story/delete/{{ row[0] }}"><img src="/static/images/waste-bin.svg" width="20" height="20" alt="Delete"></a></td>
+                {% endif%}
             </tr>
             {% endfor %}
             
