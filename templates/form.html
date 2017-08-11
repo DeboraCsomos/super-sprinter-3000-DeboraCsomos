@@ -19,11 +19,11 @@
             <input id="estimation" type="number" name="estimation" min="0.5" max="40" step="0.5" value="{{edit_story[5] if edit_story else ''}}">
             <p><label for="status">Status:</label></p>
             <select id="status" name="status">
-                <option {{'selected' if edit_story[6] == 'Planning' else ''}}>Planning</option>
-                <option {{'selected' if edit_story[6] == 'TODO' else ''}}>TODO</option>
-                <option {{'selected' if edit_story[6] == 'In Progress' else ''}}>In Progress</option>
-                <option {{'selected' if edit_story[6] == 'Review' else ''}}>Review</option>
-                <option {{'selected' if edit_story[6] == 'Done' else ''}}>Done</option>
+                <option {{'selected' if edit_story and edit_story[6] == 'Planning' else ''}}>Planning</option>
+                <option {{'selected' if edit_story and edit_story[6] == 'TODO' else ''}}>TODO</option>
+                <option {{'selected' if edit_story and edit_story[6] == 'In Progress' else ''}}>In Progress</option>
+                <option {{'selected' if edit_story and edit_story[6] == 'Review' else ''}}>Review</option>
+                <option {{'selected' if edit_story and edit_story[6] == 'Done' else ''}}>Done</option>
             </select>
             <p>
             <button type="submit">{{'Update' if edit_story else 'Create'}}</button>
