@@ -25,7 +25,7 @@ def route_new():
             story_info = []
             for row in storyreader:
                 story_info.append(row)
-        if story_info:    
+        if story_info:
             story_id = int(story_info[-1][0]) + 1
         else:
             story_id = 1
@@ -39,7 +39,7 @@ def route_new():
         with open("user_stories.csv", "a", newline='') as csvfile:
             storywriter = csv.writer(csvfile)
             storywriter.writerow(user_story)
- 
+
         return redirect('/')
 
     return render_template('form.html')
@@ -62,11 +62,11 @@ def route_edit(story_id):
                 if story_id == row[0]:
                     stories.append(edited_user_story)
                 else:
-                    stories.append(row)          
+                    stories.append(row)
         with open("user_stories.csv", "w", newline='') as csvfile:
             storywriter = csv.writer(csvfile)
             storywriter.writerows(stories)
-            
+
         return redirect('/')
     if request.method == 'GET':
         with open("user_stories.csv", "r", newline='') as csvfile:
@@ -99,7 +99,6 @@ if __name__ == "__main__":
     app.run(
         debug=True,  # Allow verbose error reports
         # use_debugger=False,
-        # use_reloader=False,  
+        # use_reloader=False,
         port=5000  # Set custom port
     )
-
