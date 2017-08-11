@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request, session
 import csv
+import os
 
 
 app = Flask(__name__)
@@ -53,7 +54,7 @@ def route_edit(story_id):
 
 
 if __name__ == "__main__":
-    app.secret_key = 'some_secret_key_here'
+    app.secret_key = os.urandom(24)
     app.run(
         debug=True,  # Allow verbose error reports
         # use_debugger=False,
