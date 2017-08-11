@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>User Story Manager - Add new Story</h1>
-        <form action='/story' method="post">
+        <form action= {{ '/story/' + story_id if edit_story else '/story'}}  method="post">
             <p><label for="title">Story Title:</label></p>
             <textarea id="title" name="story title" rows="1" cols="30">{{edit_story[1] if edit_story else ''}}</textarea>
             <p><label for="story">User Story:</label></p>
