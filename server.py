@@ -13,8 +13,20 @@ def route_index():
         story_info = []
         for row in storyreader:
             story_info.append(row)
+    criteria = request.args.get("criteria")
+    order = request.args.get("order")
+    story_info = ordering(story_info, order, criteria)
+    return render_template('list.html', story_info=story_info, order=order)
 
-    return render_template('list.html', story_info=story_info)
+
+def ordering(story_info, order, criteria):
+    if order == "descending" and criteria == "business_value":
+        story_info = sorted(story_info, key=lambda x: x[4], reverse=True)
+    elif order == "ascending" and criteria == "business_value":
+        story_info = sorted(story_info, key=lambda x: x[4], reverse=False)
+    else:
+        story_info = sorted(story_info, key=lambda x: x[0], reverse=True)
+    return story_info
 
 
 @app.route('/story', methods=['GET', 'POST'])
